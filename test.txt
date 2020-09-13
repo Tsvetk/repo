@@ -1,0 +1,45 @@
+
+Welcome to Alaska!
+This is CRUD service for bears in alaska.
+CRUD routes presented with REST naming notation:
+
+POST			/bear - create
+body: return record id 
+
+GET			/bear - read all bears -
+body: return list of records
+
+GET			/bear/:id - read specific bear
+body: 
+no record - return EMPTY
+"bear_type":"UNKNOWN" - return null
+normal record - see example of ber json
+
+PUT			/bear/:id - update specific bear
+no record - 500 Server Error
+"bear_type":"UNKNOWN" - 404 Not Found
+normal record - return OK - record no update
+
+DELETE			/bear - delete all bears
+body: 
+no record - return OK
+"bear_type":"UNKNOWN" - return OK
+normal record - return OK
+
+DELETE			/bear/:id - delete specific bear
+body: return OK
+
+Example of ber json: {"bear_type":"BLACK","bear_name":"mikhail","bear_age":17.5}.
+Available types for bears are: POLAR, BROWN, BLACK and GUMMY.
+
+
+"bear_type" - with type GYMMY add record:
+{"bear_id":34,"bear_type":"UNKNOWN","bear_name":"EMPTY_NAME","bear_age":0.0},
+
+"bear_name" - to upper , no limit letters in name
+"bear_age" - from 0(include) to 100(include) float
+
+
+Saving of information is not implemented.
+Completely deleting records does not reset the index to zero.
+
